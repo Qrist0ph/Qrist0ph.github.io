@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Canvas Example</title>
+</head>
+
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        canvas.width = 1000;
+        canvas.height = 30;
+
+        const ctx = canvas.getContext('2d');
+        // const data = [0, 1, 0, 1, 0, 0, 1, 1, 0, 1]; // Hier das Array mit 1000 Elementen einfügen
+
+        const data = [];
+        for (let i = 0; i < 1000; i++) {
+            data.push(Math.round(Math.random()));
+        }
+        console.log(data);
+
+        for (let i = 0; i < data.length; i++) {
+            if (data[i] === 0) {
+                ctx.strokeStyle = 'green';
+            } else {
+                ctx.strokeStyle = 'red';
+            }
+            ctx.beginPath();
+            ctx.moveTo(i, 0);
+            ctx.lineTo(i, 30);
+            ctx.stroke();
+        }
+    </script>
+</body>
+
+</html>
